@@ -21,6 +21,10 @@ I got tired of having a browser tab open just to play YouTube Music. So I create
 
 ---
 
+If you want to package a squirrel based app/installer, you can use `yarn make`. Once done check the `out/make` folder for your new squirrel based app/installer.
+
+---
+
 🧑‍⚖️ This is an unofficial application and not published or supported by Google, LLC. Intended for personal and educational purposes. I am liable for nothing.
 
 [XMMenuPlayer]: https://github.com/rosswaycaster/XM-Menu-Player
