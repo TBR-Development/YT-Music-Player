@@ -69,7 +69,14 @@ mb.on("ready", () => {
   //  quits explicitly with Cmd + Q.
 
   globalShortcut.register('CommandOrControl+X', () => {
-    if (process.platform !== "darwin") app.quit();
+    if (process.platform !== "darwin") {
+      mb.app.removeAllListeners();
+      mb.tray.removeAllListeners();
+      mb.window.removeAllListeners();
+      mb.app.quit();
+      console.log("app has exited")
+    };
+
     console.log("app has exited");
   });
 
