@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app } = require("electron");
+const { app, globalShortcut } = require("electron");
 const path = require("path");
 const { menubar } = require("menubar");
 
@@ -8,14 +8,16 @@ const mb = menubar({
   preloadWindow: true,
   icon: path.join(__dirname, "/MenuIcon.png"),
   webPreferences: {
-    partition: "persist:ytmmenuplayer",
+    partition: "persist:YT-Music-Player",
   },
 });
+
 
 mb.app.commandLine.appendSwitch(
   "disable-backgrounding-occluded-windows",
   "true"
 );
+
 
 mb.on("ready", () => {
   console.log("app is ready");
@@ -58,14 +60,26 @@ mb.on("ready", () => {
           // Set Menubar Title
           mb.tray.setTitle(`${playerState} ${artistName} - ${trackName}`);
         })
-        .catch(() => {});
+        .catch(() => { });
     }, 1000);
   });
+
+  //  Quit when the keyboard command CommandOrControl+X is used, except on macOS.
+  //  There, it's common for applications and their menu bar to stay active until the user 
+  //  quits explicitly with Cmd + Q.
+
+  globalShortcut.register('CommandOrControl+X', () => {
+    if (process.platform !== "darwin") app.quit();
+    console.log("app has exited");
+  });
+
 });
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+
+//  Quit when all windows are closed, except on macOS. There, it's common
+//  for applications and their menu bar to stay active until the user quits
+//  explicitly with Cmd + Q.
+
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });

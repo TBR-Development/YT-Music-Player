@@ -21,7 +21,12 @@ I got tired of having a browser tab open just to play YouTube Music. So I create
 
 ---
 
+**Notes**
+
 If you want to package a squirrel based app/installer, you can use `yarn make`. Once done check the `out/make` folder for your new squirrel based app/installer.
+
+Windows and linux users can use `Control+X` or `Command+X` to quit the app.
+MacOS users can use `CMD+Q` to quit the app.
 
 ---
 

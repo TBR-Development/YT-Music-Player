@@ -9,7 +9,7 @@
     "menubar"
   ],
   "main": "./main.js",
-  "version": "1.0.0",
+  "version": "1.0.0-r001",
   "author": "TBR Development",
   "scripts": {
     "start": "electron-forge start",
