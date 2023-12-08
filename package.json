@@ -1,15 +1,13 @@
 {
-  "name": "ytmusicplayer",
-  "productName": "YT Music Player",
-  "description": "YouTube Music player that runs in your system tray.",
+  "name": "youtube-music",
+  "productName": "YouTube Music",
+  "description": "Listen to mixes based on the music you love, and discover thousands of other playlistes curated to match any mood or moment.",
   "keywords": [
     "electron",
-    "youtube",
-    "music",
-    "menubar"
+    "youtube-music"
   ],
   "main": "./main.js",
-  "version": "1.0.0-rev2",
+  "version": "1.0.0-rev3",
   "author": "TBR Development",
   "scripts": {
     "start": "electron-forge start",
@@ -23,12 +21,7 @@
     "menubar": "*"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.59",
-    "@electron-forge/maker-deb": "^6.0.0-beta.59",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.59",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.59",
-    "@electron-forge/maker-zip": "^6.0.0-beta.59",
-    "electron": "^18.3.7"
+    "copy-webpack-plugin": "^11.0.0"
   },
   "config": {
     "forge": {
@@ -38,20 +31,19 @@
       },
       "makers": [
         {
-          "name": "@electron-forge/maker-squirrel"
+          "name": "@electron-forge/maker-squirrel",
+          "config": {}
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
         },
         {
           "name": "@electron-forge/maker-deb",
           "config": {}
         },
         {
-          "name": "@electron-forge/maker-rpm",
+          "name": "@electron-forge/maker-dmg",
           "config": {}
         }
       ]
