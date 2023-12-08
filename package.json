@@ -17,11 +17,15 @@
     "lint": "echo \"No linting configured\""
   },
   "dependencies": {
-    "git": "^0.1.5",
-    "menubar": "*"
+    "menubar": "*",
+    "git": "^0.1.5"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^11.0.0"
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-zip": "7.2.0",
+    "@electron-forge/cli": "^7.2.0"
   },
   "config": {
     "forge": {
@@ -31,8 +35,7 @@
       },
       "makers": [
         {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {}
+          "name": "@electron-forge/maker-squirrel"
         },
         {
           "name": "@electron-forge/maker-rpm",
@@ -43,7 +46,11 @@
           "config": {}
         },
         {
-          "name": "@electron-forge/maker-dmg",
+          "name": "@electron-forge/maker-zip",
+          "platforms": ["darwin"]
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
           "config": {}
         }
       ]

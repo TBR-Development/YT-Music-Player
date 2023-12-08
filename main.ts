@@ -3,13 +3,13 @@ import { app, globalShortcut, Tray, Menu, nativeImage } from 'electron';
 const menubar = require('menubar');
 const path = require('path');
 
-const iconPath = path.join(__dirname, 'MenuIcon.png')
+const iconPath = path.join(__dirname, '/assets/MenuIcon.png')
 
 
 const mb = menubar({
   browserWindow: { width: 450, height: 660 },
   preloadWindow: true,
-  icon: path.join(__dirname, '/assets/icon.png'),
+  icon: path.join(__dirname, '/assets/Icon.png'),
   webPreferences: {
     partition: 'presist: YouTube-Music',
   }
