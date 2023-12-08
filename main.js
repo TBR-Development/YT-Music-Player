@@ -1,23 +1,25 @@
-import { app, globalShortcut, Tray, Menu, nativeImage } from 'electron';
+import { app, globalShortcut, Tray, Menu } from 'electron';
+import { path }from "path";
+import { menubar } from "menubar";
 
-const menubar = require('menubar');
-const path = require('path');
-
-const iconPath = path.join(__dirname, '/MenuIcon.png')
-
+let iconPath = path.join(__dirname, '/MenuIcon.png')
 
 const mb = menubar({
-  browserWindow: { width: 450, height: 660 },
+  browserWindow: {
+    width: 450,
+    height: 660,
+    show: true,
+    webPreferences: {
+      partition: 'persist:youtubemusic'
+    } 
+  },
   preloadWindow: true,
-  icon: iconPath,
-  webPreferences: {
-    partition: 'presist:youtubemusic',
-  }
+  icon: iconPath
 });
 
 mb.app.commandLine.appendSwitch(
-  "disable-background-occluded-windows",
-  "true"
+  'disable-background-occluded-windows',
+  'true'
 );
 
 mb.on('ready', () => {
@@ -28,7 +30,7 @@ mb.on('ready', () => {
     {
       "label": "Open",
       "type": "normal",
-      "click": () => app.show()
+      "click": () => mb.app.show()
   },
   {
       "label": "Quit",

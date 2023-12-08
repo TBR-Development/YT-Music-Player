@@ -2,6 +2,7 @@
   "name": "youtube-music",
   "productName": "YouTube Music",
   "description": "Listen to mixes based on the music you love, and discover thousands of other playlistes curated to match any mood or moment.",
+  "type": "module",
   "keywords": [
     "electron",
     "youtube-music"
@@ -17,15 +18,15 @@
     "lint": "echo \"No linting configured\""
   },
   "dependencies": {
-    "menubar": "*",
-    "git": "^0.1.5"
+    "menubar": "9.4.0"
   },
   "devDependencies": {
+    "electron": "^28.0.0",
+    "@electron-forge/cli": "^7.2.0",
     "@electron-forge/maker-deb": "^7.2.0",
-    "@electron-forge/maker-squirrel": "^7.2.0",
     "@electron-forge/maker-rpm": "^7.2.0",
-    "@electron-forge/maker-zip": "7.2.0",
-    "@electron-forge/cli": "^7.2.0"
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0"
   },
   "config": {
     "forge": {
@@ -38,16 +39,14 @@
           "name": "@electron-forge/maker-squirrel"
         },
         {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "name": "@electron-forge/maker-zip",
+          "platforms": [ 
+            "darwin"
+          ]
         },
         {
           "name": "@electron-forge/maker-deb",
           "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": ["darwin"]
         },
         {
           "name": "@electron-forge/maker-rpm",
