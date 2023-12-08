@@ -1,7 +1,3 @@
-<p align="center">
-  <img width="200" height="200" src="Icon.png">
-</p>
-
 <h1 align="center">YouTube Music Player</h1>
 
 <p align="center">
