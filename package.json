@@ -8,7 +8,7 @@
     "youtube-music"
   ],
   "main": "./main.js",
-  "version": "1.0.0-rev3",
+  "version": "2.0.0.0",
   "author": "TBR Development",
   "scripts": {
     "start": "electron-forge start",
@@ -32,7 +32,7 @@
     "forge": {
       "packagerConfig": {
         "platform": "all",
-        "icon": "./Icon"
+        "icon": "./assets/images/Icon"
       },
       "makers": [
         {
@@ -40,7 +40,7 @@
         },
         {
           "name": "@electron-forge/maker-zip",
-          "platforms": [ 
+          "platforms": [
             "darwin"
           ]
         },

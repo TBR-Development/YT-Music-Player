@@ -1,62 +1,42 @@
-import { app, globalShortcut, Tray, Menu } from 'electron';
-import { path }from "path";
+import { app, globalShortcut, Tray, Menu } from "electron";
 import { menubar } from "menubar";
 
-let iconPath = path.join(__dirname, '/MenuIcon.png')
+import { tray, contextMenu } from "./assets/menus/trayMenu";
 
-const mb = menubar({
-  browserWindow: {
-    width: 450,
-    height: 660,
-    show: true,
-    webPreferences: {
-      partition: 'persist:youtubemusic'
-    } 
-  },
-  preloadWindow: true,
-  icon: iconPath
+app.on("ready", () => {
+  const iconPath = "./assets/images/MenuIcon.png";
+
+  tray.setContextMenu(contextMenu);
+
+  const mb = menubar({
+    tray,
+    browserWindow: {
+      width: 450,
+      height: 660,
+      webPreferences: {
+        partition: "persist:youtubemusic",
+      },
+    },
+    preloadWindow: true,
+    icon: iconPath,
+  });
+
+  mb.app.commandLine.appendSwitch(
+    "disable-background-occluded-windows",
+    "true"
+  );
+
+  mb.on("ready", () => {
+    console.log("YouTube Music app is ready.");
+
+    mb.window.loadURL("https://music.youtube.com/");
+
+    globalShortcut.register("CommandOrControl+X", () => {
+      if (process.platform !== "darwin") app.quit();
+    });
+  });
 });
 
-mb.app.commandLine.appendSwitch(
-  'disable-background-occluded-windows',
-  'true'
-);
-
-mb.on('ready', () => {
-  console.log('app is ready');
-
-  const tray = new Tray(iconPath);
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      "label": "Open",
-      "type": "normal",
-      "click": () => mb.app.show()
-  },
-  {
-      "label": "Quit",
-      "type": "normal",
-      "click": () => app.quit()
-  }
-  ])
-  
-  mb.window.loadURL('https://music.youtube.com/');
-
-});
-
-globalShortcut.register('CommandOrControl+X', () => {
-  if (process.platform !== 'darwin') {
-    mb.app.removeAllListeners();
-    mb.tray.removeAllListeners();
-    mb.window.removeAllListeners();
-    app.quit()
-  };
-});
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    mb.app.removeAllListeners();
-    mb.tray.removeAllListeners();
-    mb.window.removeAllListeners();
-    app.quit()
-  };
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
 });
