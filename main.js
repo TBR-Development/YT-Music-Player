@@ -2,10 +2,9 @@ import { app, globalShortcut } from "electron";
 import { menubar } from "menubar";
 
 import { tray, contextMenu } from "./assets/menus/trayMenu";
-import { cfg } from "./config";
+import { siteUrl, menuIcon, persistPartition, commandSwitches, readyMessege } from "./assets/configs/cfg";
 
 app.on("ready", () => {
-  const iconPath = cfg.MenuIcon;
 
   tray.setContextMenu(contextMenu);
 
@@ -15,19 +14,19 @@ app.on("ready", () => {
       width: 450,
       height: 660,
       webPreferences: {
-        partition: cfg.Partition,
+        partition: persistPartition,
       },
     },
     preloadWindow: true,
-    icon: iconPath,
+    icon: menuIcon,
   });
 
-  mb.app.commandLine.appendSwitch(cfg.Switches);
+  mb.app.commandLine.appendSwitch(commandSwitches);
 
   mb.on("ready", () => {
-    console.log(cfg.ReadyMessage);
+    console.log(readyMessege);
 
-    mb.window.loadURL(cfg.SiteUrl);
+    mb.window.loadURL(siteUrl);
 
     globalShortcut.register("CommandOrControl+X", () => {
       if (process.platform !== "darwin") app.quit();
