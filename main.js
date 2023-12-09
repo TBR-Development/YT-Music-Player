@@ -1,4 +1,4 @@
-import { app, globalShortcut, Tray, Menu } from "electron";
+import { app, globalShortcut } from "electron";
 import { menubar } from "menubar";
 
 import { tray, contextMenu } from "./assets/menus/trayMenu";
