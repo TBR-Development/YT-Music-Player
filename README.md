@@ -1,7 +1,7 @@
 <h1 align="center">YouTube Music App</h1>
 
 <p align="center">
-<img width=300" alt="Icon.png" src="/assets/images/Icon.png">
+<img width=300" alt="Icon.png" src="/Icon.png">
 <img width="450" alt="2023-07-27" src="https://i.imgur.com/vMD8d3p.png">
 </p>
 
