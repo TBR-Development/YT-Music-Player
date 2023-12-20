@@ -11,11 +11,16 @@ I got tired of having a browser tab open just to play YouTube Music. So I create
 
 **To build for a different platform:**
 
-1. Download this repo.
-2. Open the folder in your command line or Terminal.
-3. Run `yarn install`.
-4. Then run `yarn package`.
-5. Check the `out` folder for the packaged application to run.
+1. Run the following commands in your terminal:
+
+```sh
+git clone https://github.com/tbr-development/YT-Music-Player
+cd YT-Music-Player
+yarn install
+yarn package
+```
+
+2. Check the `out` folder for the packaged application to run.
 
 ---
 
