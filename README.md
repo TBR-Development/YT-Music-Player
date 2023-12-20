@@ -5,11 +5,11 @@
 <img width="450" alt="2023-07-27" src="https://i.imgur.com/vMD8d3p.png">
 </p>
 
-I got tired of having a browser tab open just to play YouTube Music. So I created this little menubar [Electron](https://www.electronjs.org/) application _(inspired by [rosswaycaster/XM-Menu-Player][XMMenuPlayer])_ that wraps YouTube Music. Enjoy! 🎶
+Electron menubar [Electron](https://www.electronjs.org/) application _(inspired by [rosswaycaster/XM-Menu-Player][XMMenuPlayer])_ that wraps YouTube Music. Enjoy 🎶
 
 ---
 
-**To build for a different platform:**
+**Instructions:**
 
 1. Run the following commands in your terminal:
 
