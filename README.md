@@ -1,4 +1,4 @@
-<h1 align="center">YouTube Music App</h1>
+<h1 align="center">YouTube Music Player</h1>
 
 <p align="center">
 <img width=300" alt="Icon.png" src="/Icon.png">
