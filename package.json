@@ -1,15 +1,14 @@
 {
-  "name": "youtube-music",
+  "name": "youtubemusic",
   "productName": "YouTube Music",
   "description": "Listen to mixes based on the music you love, and discover thousands of other playlistes curated to match any mood or moment.",
-  "type": "module",
   "keywords": [
     "electron",
     "youtube-music"
   ],
   "main": "./main.js",
-  "version": "2.0.0.0",
-  "author": "TBR Development",
+  "version": "2.0.0",
+  "author": "PhantomNimbi",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -32,7 +31,7 @@
     "forge": {
       "packagerConfig": {
         "platform": "all",
-        "icon": "./assets/images/Icon"
+        "icon": "./Icon"
       },
       "makers": [
         {
